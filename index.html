@@ -1,0 +1,1618 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Jhanelle Atasha — Birthday Invitation</title>
+
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+
+        body {
+            position: relative;
+            font-family: Georgia, "Times New Roman", serif;
+            background: linear-gradient( 180deg, #12080d 0%, #241119 25%, #3b1b25 50%, #241119 75%, #12080d 100% );
+        }
+
+
+        /* =========================================================
+           ROYAL BACKGROUND
+        ========================================================= */
+
+        .royal-background {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+            opacity: 0;
+            background: radial-gradient( ellipse at 50% 42%, rgba(255,225,183,.50) 0%, rgba(190,133,109,.18) 28%, transparent 62% ), radial-gradient( ellipse at 50% 100%, #341c25 0%, #4b2932 25%, transparent 62% ), linear-gradient( 180deg, #24151c 0%, #3b222b 32%, #69434a 70%, #2d1b22 100% );
+            transition: opacity 2s cubic-bezier(.65,0,.35,1);
+        }
+
+
+        body.opened .royal-background {
+            opacity: 1;
+        }
+
+
+        /* =========================================================
+           GOLDEN LIGHT
+        ========================================================= */
+
+        .golden-light {
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            left: 50%;
+            top: 31%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient( circle, rgba(255,226,171,.42) 0%, rgba(214,157,119,.16) 32%, transparent 70% );
+            filter: blur(20px);
+            opacity: .7;
+            animation: royalGlow 8s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes royalGlow {
+
+            from {
+                transform: translate(-50%, -50%) scale(.88);
+                opacity: .45;
+            }
+
+            to {
+                transform: translate(-50%, -50%) scale(1.12);
+                opacity: .8;
+            }
+        }
+
+
+        /* =========================================================
+           LIGHT BEAMS
+        ========================================================= */
+
+        .light-beam {
+            position: absolute;
+            top: -20%;
+            width: 180px;
+            height: 150%;
+            background: linear-gradient( 180deg, rgba(255,225,183,.16), rgba(255,225,183,.03), transparent );
+            filter: blur(20px);
+            opacity: .5;
+        }
+
+
+            .light-beam.one {
+                left: 34%;
+                transform: rotate(12deg);
+            }
+
+
+            .light-beam.two {
+                left: 50%;
+                transform: rotate(-9deg);
+            }
+
+
+            .light-beam.three {
+                left: 65%;
+                transform: rotate(14deg);
+            }
+
+
+        /* =========================================================
+           ROYAL ARCH
+        ========================================================= */
+
+        .arch {
+            position: absolute;
+            left: 50%;
+            top: -130px;
+            width: 650px;
+            height: 700px;
+            transform: translateX(-50%);
+            border: 3px solid rgba(181,139,91,.32);
+            border-bottom: none;
+            border-radius: 50% 50% 0 0;
+            box-shadow: 0 0 0 12px rgba(65,36,42,.35), inset 0 0 45px rgba(218,170,120,.08);
+        }
+
+
+        /* =========================================================
+           OLD SIDE CURTAINS
+        ========================================================= */
+
+        .curtain {
+            position: absolute;
+            top: 0;
+            width: 18%;
+            height: 100%;
+            background: linear-gradient( 90deg, #21141b 0%, #382029 35%, #522c36 55%, #25171e 100% );
+            opacity: .9;
+            box-shadow: 0 0 40px rgba(0,0,0,.3);
+        }
+
+
+            .curtain.left {
+                left: -4%;
+                clip-path: polygon( 0 0, 100% 0, 80% 100%, 0 100% );
+            }
+
+
+            .curtain.right {
+                right: -4%;
+                clip-path: polygon( 0 0, 100% 0, 100% 100%, 20% 100% );
+            }
+
+
+        /* =========================================================
+           REMOVE OLD ELEMENTS
+        ========================================================= */
+
+        .foliage,
+        .tree {
+            display: none !important;
+        }
+
+
+        /* =========================================================
+           TOP BRANCHES
+        ========================================================= */
+
+        .top-branch {
+            position: absolute;
+            width: 500px;
+            height: 80px;
+            top: -25px;
+            background: linear-gradient( 90deg, #4b3730, #735045, #4b3730 );
+            border-radius: 100%;
+            opacity: .9;
+        }
+
+
+            .top-branch.left {
+                left: -120px;
+                transform: rotate(15deg);
+            }
+
+
+            .top-branch.right {
+                right: -150px;
+                transform: rotate(-20deg);
+            }
+
+
+        /* =========================================================
+           MIST
+        ========================================================= */
+
+        .mist {
+            position: absolute;
+            width: 130%;
+            height: 180px;
+            left: -15%;
+            bottom: 15%;
+            background: radial-gradient( ellipse, rgba(255,235,220,.55), rgba(255,211,195,.15) 50%, transparent 75% );
+            filter: blur(25px);
+            animation: mistMove 9s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes mistMove {
+
+            from {
+                transform: translateX(-4%);
+            }
+
+            to {
+                transform: translateX(4%);
+            }
+        }
+
+
+        /* =========================================================
+           FLOATING PETALS
+        ========================================================= */
+
+        .petals {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 15;
+        }
+
+
+        .petal {
+            position: absolute;
+            top: -50px;
+            width: 15px;
+            height: 23px;
+            background: linear-gradient( 135deg, #f8c8d8, #e99ab5 );
+            border-radius: 100% 0 100% 0;
+            opacity: .7;
+            filter: blur(.2px);
+            animation: fall linear infinite, sway ease-in-out infinite alternate;
+        }
+
+
+        @keyframes fall {
+
+            0% {
+                transform: translateY(-80px) rotate(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+            }
+        }
+
+
+        @keyframes sway {
+
+            0% {
+                margin-left: -50px;
+            }
+
+            100% {
+                margin-left: 50px;
+            }
+        }
+
+
+        body.opened .petal {
+            background: linear-gradient( 135deg, #f6d0d0, #d9a18e );
+            opacity: .5;
+            filter: blur(.3px) drop-shadow( 0 0 3px rgba(255,215,180,.25) );
+        }
+
+
+        /* =========================================================
+           MAIN CONTAINER
+        ========================================================= */
+
+        .container {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* =========================================================
+           ENVELOPE WRAPPER
+        ========================================================= */
+
+        .envelope-wrapper {
+            position: relative;
+            width: min(520px, 92vw);
+            height: 390px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+
+        /* =========================================================
+           ENVELOPE
+           3D PAPER EFFECT
+        ========================================================= */
+
+        .envelope {
+            position: relative;
+            width: 430px;
+            height: 280px;
+            max-width: 90vw;
+            background: linear-gradient( 145deg, #fffdfd 0%, #f8eeee 48%, #ead7da 100% );
+            border: 1px solid #d1b2b7;
+            box-shadow: 0 8px 0 rgba(117,72,82,.10), 0 18px 25px rgba(61,31,39,.16), 0 35px 70px rgba(40,18,25,.25), inset 0 1px 0 rgba(255,255,255,.9), inset 0 -10px 25px rgba(130,75,86,.08);
+            cursor: pointer;
+            transition: transform 1.75s cubic-bezier(.65,0,.35,1), box-shadow .5s ease;
+            z-index: 25;
+            transform-style: preserve-3d;
+        }
+
+
+            /* subtle raised paper edge */
+
+            .envelope::before {
+                content: "";
+                position: absolute;
+                inset: 5px;
+                border: 1px solid rgba(255,255,255,.75);
+                pointer-events: none;
+                z-index: 20;
+                box-shadow: inset 0 0 12px rgba(117,72,82,.08);
+            }
+
+
+            /* bottom envelope triangle */
+
+            .envelope::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 0;
+                border-left: 215px solid transparent;
+                border-right: 215px solid transparent;
+                border-bottom: 150px solid #e7ced2;
+                z-index: 3;
+                filter: drop-shadow( 0 -1px 1px rgba(255,255,255,.45) );
+            }
+
+
+            .envelope:hover {
+                box-shadow: 0 8px 0 rgba(117,72,82,.10), 0 22px 30px rgba(61,31,39,.20), 0 42px 85px rgba(40,18,25,.30), inset 0 1px 0 rgba(255,255,255,.95), inset 0 -10px 25px rgba(130,75,86,.08);
+            }
+
+
+        /* =========================================================
+           LEFT FOLD
+        ========================================================= */
+
+        .envelope-left {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-top: 140px solid transparent;
+            border-left: 215px solid #dfc2c7;
+            z-index: 4;
+            filter: drop-shadow( 2px -1px 2px rgba(80,45,53,.10) );
+        }
+
+
+        /* =========================================================
+           RIGHT FOLD
+        ========================================================= */
+
+        .envelope-right {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-top: 140px solid transparent;
+            border-right: 215px solid #dfc2c7;
+            z-index: 4;
+            filter: drop-shadow( -2px -1px 2px rgba(80,45,53,.10) );
+        }
+
+
+        /* =========================================================
+           FLAP
+        ========================================================= */
+
+        .flap {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 215px solid transparent;
+            border-right: 215px solid transparent;
+            border-top: 145px solid #f1dcdf;
+            transform-origin: top center;
+            transition: transform 1.6s cubic-bezier(.65,0,.35,1);
+            z-index: 8;
+            filter: drop-shadow( 0 5px 4px rgba(73,36,45,.12) );
+        }
+
+
+        /* =========================================================
+           WAX SEAL
+        ========================================================= */
+
+        .seal {
+            position: absolute;
+            left: 50%;
+            top: 112px;
+            transform: translateX(-50%);
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: radial-gradient( circle at 35% 30%, #b16678, #713544 65%, #4e2432 100% );
+            border: 2px solid rgba(235,190,159,.45);
+            z-index: 12;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f4d8b5;
+            font-size: 22px;
+            box-shadow: 0 4px 0 rgba(65,29,38,.18), 0 8px 18px rgba(63,29,38,.35), inset 2px 2px 5px rgba(255,210,205,.16), inset -3px -4px 7px rgba(35,10,18,.22);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+
+        /* =========================================================
+           INVITATION PAPER
+        ========================================================= */
+
+        .invitation {
+            position: absolute;
+            width: 390px;
+            min-height: 350px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -18%) scale(.82);
+            opacity: 0;
+            padding: 42px 32px;
+            text-align: center;
+            background: linear-gradient( 145deg, #fffefa, #faf0eb );
+            border: 1px solid #d9c0b7;
+            box-shadow: 0 5px 0 rgba(120,74,71,.08), 0 20px 45px rgba(35,18,23,.22), 0 35px 80px rgba(35,18,23,.20);
+            z-index: 6;
+            pointer-events: none;
+            transition: transform 1.7s cubic-bezier(.2,.8,.2,1), opacity 1.1s ease;
+        }
+
+
+            /* paper border */
+
+            .invitation::before {
+                content: "";
+                position: absolute;
+                inset: 13px;
+                border: 1px solid #caa979;
+                opacity: .7;
+                pointer-events: none;
+            }
+
+
+            .invitation::after {
+                content: "";
+                position: absolute;
+                inset: 17px;
+                border: 1px solid rgba(202,169,121,.25);
+                pointer-events: none;
+            }
+
+
+        /* =========================================================
+           BOTANICAL DECORATIONS
+           LOWKEY BRIDGERTON STYLE
+        ========================================================= */
+
+        .botanical {
+            position: absolute;
+            width: 115px;
+            height: 150px;
+            pointer-events: none;
+            z-index: 2;
+            opacity: .75;
+        }
+
+
+            .botanical.left {
+                left: -45px;
+                bottom: -20px;
+                transform: rotate(-12deg);
+            }
+
+
+            .botanical.right {
+                right: -45px;
+                top: -20px;
+                transform: rotate(168deg);
+            }
+
+
+        .stem {
+            position: absolute;
+            width: 2px;
+            height: 135px;
+            left: 55px;
+            top: 8px;
+            background: linear-gradient( 180deg, transparent, #856451, #62473c );
+            border-radius: 100%;
+        }
+
+
+        .leaf {
+            position: absolute;
+            width: 28px;
+            height: 12px;
+            background: linear-gradient( 135deg, #8b6c59, #60483e );
+            border-radius: 100% 0 100% 0;
+            opacity: .7;
+        }
+
+
+            .leaf.one {
+                left: 33px;
+                top: 32px;
+                transform: rotate(25deg);
+            }
+
+
+            .leaf.two {
+                left: 57px;
+                top: 50px;
+                transform: rotate(160deg);
+            }
+
+
+            .leaf.three {
+                left: 28px;
+                top: 70px;
+                transform: rotate(35deg);
+            }
+
+
+            .leaf.four {
+                left: 58px;
+                top: 91px;
+                transform: rotate(155deg);
+            }
+
+
+            .leaf.five {
+                left: 30px;
+                top: 108px;
+                transform: rotate(30deg);
+            }
+
+
+        /* tiny flowers */
+
+        .botanical-flower {
+            position: absolute;
+            width: 27px;
+            height: 27px;
+            left: 48px;
+            top: -2px;
+        }
+
+
+            .botanical-flower span {
+                position: absolute;
+                width: 12px;
+                height: 12px;
+                background: radial-gradient( circle, #d9a7a5, #a76b73 );
+                border-radius: 50%;
+            }
+
+
+                .botanical-flower span:nth-child(1) {
+                    top: 0;
+                    left: 7px;
+                }
+
+
+                .botanical-flower span:nth-child(2) {
+                    top: 7px;
+                    left: 0;
+                }
+
+
+                .botanical-flower span:nth-child(3) {
+                    top: 7px;
+                    right: 0;
+                }
+
+
+                .botanical-flower span:nth-child(4) {
+                    bottom: 0;
+                    left: 7px;
+                }
+
+
+                .botanical-flower span:nth-child(5) {
+                    top: 8px;
+                    left: 8px;
+                    width: 10px;
+                    height: 10px;
+                    background: #d4ae6c;
+                }
+
+
+        /* =========================================================
+           OPEN STATE
+        ========================================================= */
+
+        .envelope-wrapper.open .flap {
+            transform: rotateX(180deg);
+            z-index: 2;
+        }
+
+
+        .envelope-wrapper.open .seal {
+            opacity: 0;
+            transform: translateX(-50%) scale(.7);
+        }
+
+
+        /* =========================================================
+           CARD REVEAL
+
+           LOWER than before so the notes aren't way too high.
+        ========================================================= */
+
+        .envelope-wrapper.open .invitation {
+            z-index: 40;
+            transform: translate(-50%, -76%) scale(1);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+
+        /* =========================================================
+           ENVELOPE MOVES DOWN
+        ========================================================= */
+
+        .envelope-wrapper.open .envelope {
+            transform: translateY(70px);
+            transition: transform 1.75s cubic-bezier(.65,0,.35,1);
+            z-index: 25;
+        }
+
+
+        /* =========================================================
+           TYPOGRAPHY
+        ========================================================= */
+
+        .small-text {
+            font-size: 8px;
+            letter-spacing: 4px;
+            color: #8f7775;
+            margin-bottom: 13px;
+        }
+
+
+        .subtitle {
+            font-size: 10px;
+            letter-spacing: 3.5px;
+            color: #94736e;
+            margin-bottom: 22px;
+        }
+
+
+        .name {
+            font-family: "Baskerville", "Times New Roman", serif;
+            font-size: 38px;
+            font-weight: normal;
+            font-style: italic;
+            line-height: 1.15;
+            color: #3a252b;
+            margin-bottom: 6px;
+        }
+
+
+        .surname {
+            font-family: Georgia, serif;
+            font-size: 15px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #8a5962;
+            margin-bottom: 22px;
+        }
+
+
+        /* =========================================================
+           DIVIDER
+        ========================================================= */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 12px 0 25px;
+        }
+
+
+        .divider-line {
+            width: 58px;
+            height: 1px;
+            background: linear-gradient( 90deg, transparent, #c7a36f );
+        }
+
+
+            .divider-line:last-child {
+                background: linear-gradient( 90deg, #c7a36f, transparent );
+            }
+
+
+        .divider-heart {
+            color: #b08352;
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           INVITATION MESSAGE
+        ========================================================= */
+
+        .invitation-info {
+            font-family: Georgia, serif;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #654b50;
+            text-transform: uppercase;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           FINAL MESSAGE
+        ========================================================= */
+
+        .open-message {
+            margin-top: 25px;
+            font-size: 8px;
+            letter-spacing: 2.5px;
+            color: #a27b68;
+        }
+
+
+        /* =========================================================
+           RSVP / DETAILS BUTTON
+        ========================================================= */
+
+        .details-button {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 11px 23px;
+            background: linear-gradient( 135deg, #56303b, #3c222b );
+            color: #ead0a5;
+            border: 1px solid rgba(202,169,121,.45);
+            text-decoration: none;
+            font-family: Georgia, serif;
+            font-size: 8px;
+            letter-spacing: 2.5px;
+            transition: all .3s ease;
+        }
+
+
+            .details-button:hover {
+                background: linear-gradient( 135deg, #71414e, #4c2935 );
+                color: #fff0cf;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 22px rgba(62,31,40,.25);
+            }
+
+
+        /* =========================================================
+           OPEN BUTTON
+        ========================================================= */
+
+        .open-button {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient( 135deg, #56303b, #3c222b );
+            color: #ead0a5;
+            border: 1px solid rgba(202,169,121,.45);
+            padding: 12px 30px;
+            letter-spacing: 2.5px;
+            font-family: Georgia, serif;
+            font-size: 9px;
+            cursor: pointer;
+            z-index: 30;
+            transition: all .4s ease;
+        }
+
+
+            .open-button:hover {
+                background: linear-gradient( 135deg, #71414e, #4c2935 );
+                color: #fff0cf;
+                transform: translateX(-50%) translateY(-2px);
+                box-shadow: 0 8px 25px rgba(62,31,40,.25);
+            }
+
+
+        .envelope-wrapper.open
+        .open-button {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           GRAND CURTAIN
+        ========================================================= */
+
+        .grand-curtain {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+
+        /* =========================================================
+           CURTAIN PANELS
+        ========================================================= */
+
+        .grand-curtain-panel {
+            position: absolute;
+            top: 0;
+            width: 51%;
+            height: 100%;
+            background: repeating-linear-gradient( 90deg, rgba(255,220,190,.035) 0px, rgba(255,220,190,.035) 10px, rgba(0,0,0,.10) 20px, rgba(0,0,0,.20) 32px, rgba(255,220,190,.025) 46px ), linear-gradient( 90deg, #12080d 0%, #241119 12%, #3b1b25 25%, #5a2936 42%, #6e3441 50%, #52232f 62%, #30141e 80%, #12080d 100% );
+            box-shadow: inset 0 0 100px rgba(0,0,0,.65), inset 0 0 35px rgba(255,190,150,.08), 0 0 50px rgba(0,0,0,.65);
+            transform: translateX(0);
+            /*
+             * Dramatic but not painfully slow.
+             */
+
+            transition: transform 1.8s cubic-bezier(.76,0,.24,1);
+        }
+
+
+            .grand-curtain-panel::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: repeating-linear-gradient( 90deg, transparent 0px, rgba(255,230,210,.08) 8px, transparent 18px, rgba(0,0,0,.18) 28px, transparent 42px );
+                opacity: .8;
+            }
+
+
+            .grand-curtain-panel::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 180px;
+                background: radial-gradient( ellipse, rgba(255,218,175,.18), transparent 70% );
+                filter: blur(20px);
+            }
+
+
+        /* =========================================================
+           LEFT CURTAIN
+        ========================================================= */
+
+        .grand-left {
+            left: 0;
+            clip-path: none;
+        }
+
+
+            .grand-left::after {
+                right: 5%;
+            }
+
+
+        /* =========================================================
+           RIGHT CURTAIN
+        ========================================================= */
+
+        .grand-right {
+            right: 0;
+            background: repeating-linear-gradient( 90deg, rgba(255,220,190,.025) 0px, rgba(255,220,190,.025) 10px, rgba(0,0,0,.10) 20px, rgba(0,0,0,.20) 32px, rgba(255,220,190,.035) 46px ), linear-gradient( 270deg, #12080d 0%, #241119 12%, #3b1b25 25%, #5a2936 42%, #6e3441 50%, #52232f 62%, #30141e 80%, #12080d 100% );
+            clip-path: none;
+        }
+
+
+            .grand-right::after {
+                left: 5%;
+            }
+
+
+        /* =========================================================
+           CURTAIN OPEN
+        ========================================================= */
+
+        body.opened .grand-left {
+            transform: translateX(-110%);
+        }
+
+
+        body.opened .grand-right {
+            transform: translateX(110%);
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            .envelope-wrapper {
+                width: 100vw;
+                height: 340px;
+                transform: translateY(5px);
+            }
+
+
+            .envelope {
+                width: min(330px, 88vw);
+                height: 220px;
+            }
+
+
+                .envelope::after {
+                    border-left-width: 165px;
+                    border-right-width: 165px;
+                    border-bottom-width: 120px;
+                }
+
+
+            .envelope-left {
+                border-left-width: 165px;
+                border-top-width: 110px;
+            }
+
+
+            .envelope-right {
+                border-right-width: 165px;
+                border-top-width: 110px;
+            }
+
+
+            .flap {
+                border-left-width: 165px;
+                border-right-width: 165px;
+                border-top-width: 115px;
+            }
+
+
+            .seal {
+                top: 84px;
+                width: 50px;
+                height: 50px;
+                font-size: 19px;
+            }
+
+
+            .open-button {
+                bottom: 13px;
+                padding: 11px 21px;
+                font-size: 8px;
+                white-space: nowrap;
+            }
+
+
+            /* -----------------------------------------------
+               MOBILE CARD
+            ------------------------------------------------ */
+
+            .invitation {
+                width: min(320px, 84vw);
+                min-height: 320px;
+                padding: 34px 22px;
+            }
+
+
+            .envelope-wrapper.open
+            .invitation {
+                transform: translate(-50%, -73%) scale(.91);
+            }
+
+
+            .envelope-wrapper.open
+            .envelope {
+                transform: translateY(60px);
+                transition: transform 1.7s cubic-bezier(.65,0,.35,1);
+            }
+
+
+            /* -----------------------------------------------
+               MOBILE TYPE
+            ------------------------------------------------ */
+
+            .small-text {
+                font-size: 7px;
+                letter-spacing: 3px;
+                margin-bottom: 10px;
+            }
+
+
+            .subtitle {
+                font-size: 8px;
+                letter-spacing: 2.5px;
+                line-height: 1.6;
+                margin-bottom: 18px;
+            }
+
+
+            .name {
+                font-size: 30px;
+                line-height: 1.1;
+            }
+
+
+            .surname {
+                font-size: 10px;
+                letter-spacing: 3px;
+                margin-bottom: 18px;
+            }
+
+
+            .divider {
+                gap: 8px;
+                margin: 10px 0 19px;
+            }
+
+
+            .divider-line {
+                width: 42px;
+            }
+
+
+            .invitation-info {
+                font-size: 11px;
+                letter-spacing: 1.5px;
+                line-height: 1.7;
+            }
+
+
+            .open-message {
+                font-size: 7px;
+                letter-spacing: 1.8px;
+                line-height: 1.6;
+                margin-top: 19px;
+            }
+
+
+            .details-button {
+                margin-top: 16px;
+                padding: 10px 18px;
+                font-size: 7px;
+                letter-spacing: 2px;
+            }
+
+
+            /* -----------------------------------------------
+               MOBILE BOTANICALS
+            ------------------------------------------------ */
+
+            .botanical {
+                transform: scale(.72);
+            }
+
+
+                .botanical.left {
+                    left: -52px;
+                    bottom: -28px;
+                }
+
+
+                .botanical.right {
+                    right: -52px;
+                    top: -28px;
+                    transform: rotate(168deg) scale(.72);
+                }
+
+
+            /* -----------------------------------------------
+               MOBILE BACKGROUND
+            ------------------------------------------------ */
+
+            .arch {
+                width: 420px;
+                height: 550px;
+            }
+
+
+            .grand-curtain-panel {
+                width: 56%;
+            }
+
+
+            .golden-light {
+                width: 450px;
+                height: 450px;
+            }
+        }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 380px) {
+
+            .envelope {
+                transform: scale(.92);
+            }
+
+
+            .envelope-wrapper.open
+            .envelope {
+                transform: translateY(58px) scale(.92);
+            }
+
+
+            .envelope-wrapper.open
+            .invitation {
+                transform: translate(-50%, -70%) scale(.84);
+            }
+
+
+            .invitation {
+                min-height: 305px;
+            }
+
+
+            .name {
+                font-size: 27px;
+            }
+        }
+
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =======================================================
+         GRAND CURTAIN
+    ======================================================= -->
+
+    <div class="grand-curtain">
+
+        <div class="grand-curtain-panel grand-left"></div>
+
+        <div class="grand-curtain-panel grand-right"></div>
+
+    </div>
+
+
+    <!-- =======================================================
+         ROYAL BACKGROUND
+    ======================================================= -->
+
+    <div class="royal-background">
+
+        <div class="golden-light"></div>
+
+        <div class="light-beam one"></div>
+
+        <div class="light-beam two"></div>
+
+        <div class="light-beam three"></div>
+
+        <div class="arch"></div>
+
+        <div class="curtain left"></div>
+
+        <div class="curtain right"></div>
+
+        <div class="tree left"></div>
+
+        <div class="tree right"></div>
+
+        <div class="top-branch left"></div>
+
+        <div class="top-branch right"></div>
+
+        <div class="mist"></div>
+
+    </div>
+
+
+    <!-- =======================================================
+         FLOATING PETALS
+    ======================================================= -->
+
+    <div class="petals"
+         id="petals">
+    </div>
+
+
+    <!-- =======================================================
+         MAIN CONTENT
+    ======================================================= -->
+
+    <div class="container">
+
+        <div class="envelope-wrapper"
+             id="envelopeWrapper">
+
+
+            <!-- ===============================================
+                 INVITATION PAPER
+            ================================================ -->
+
+            <div class="invitation">
+
+
+                <!-- BOTANICAL DECORATION -->
+
+                <div class="botanical left">
+
+                    <div class="stem"></div>
+
+                    <div class="leaf one"></div>
+                    <div class="leaf two"></div>
+                    <div class="leaf three"></div>
+                    <div class="leaf four"></div>
+                    <div class="leaf five"></div>
+
+                    <div class="botanical-flower">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="botanical right">
+
+                    <div class="stem"></div>
+
+                    <div class="leaf one"></div>
+                    <div class="leaf two"></div>
+                    <div class="leaf three"></div>
+                    <div class="leaf four"></div>
+                    <div class="leaf five"></div>
+
+                    <div class="botanical-flower">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ===========================================
+                     INVITATION TEXT
+                ============================================ -->
+
+                <div class="small-text">
+
+                    YOU ARE CORDIALLY INVITED TO
+
+                </div>
+
+
+                <div class="subtitle">
+
+                    CELEBRATE THE 18TH BIRTHDAY
+                    OF
+
+                </div>
+
+
+                <div class="name">
+
+                    Jhanelle Atasha
+
+                </div>
+
+
+                <div class="divider">
+
+                    <div class="divider-line"></div>
+
+                    <div class="divider-heart">
+                        ♡
+                    </div>
+
+                    <div class="divider-line"></div>
+
+                </div>
+
+
+                <div class="invitation-info">
+
+                    YOU ARE INVITED
+
+                </div>
+
+
+                <div class="open-message">
+
+                    WE CAN'T WAIT TO CELEBRATE WITH YOU
+
+                </div>
+
+
+                <!-- ===========================================
+                     EXTERNAL WEBSITE BUTTON
+
+                     CHANGE THE href BELOW.
+                ============================================ -->
+
+                <a href="https://example.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="details-button">
+
+                    RSVP / EVENT DETAILS
+
+                </a>
+
+            </div>
+
+
+            <!-- ===============================================
+                 ENVELOPE
+            ================================================ -->
+
+            <div class="envelope"
+                 id="envelope">
+
+
+                <div class="flap"></div>
+
+
+                <div class="envelope-left"></div>
+
+
+                <div class="envelope-right"></div>
+
+
+                <div class="seal">
+
+                    ♡
+
+                </div>
+
+
+                <button class="open-button"
+                        id="openButton">
+
+                    OPEN INVITATION
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =========================================================
+           PETALS
+        ========================================================= */
+
+        const petalsContainer =
+            document.getElementById("petals");
+
+
+        function createPetal() {
+
+            const petal =
+                document.createElement("div");
+
+
+            petal.classList.add("petal");
+
+
+            petal.style.left =
+                Math.random() * 100 + "vw";
+
+
+            const size =
+                Math.random() * 12 + 8;
+
+
+            petal.style.width =
+                size + "px";
+
+
+            petal.style.height =
+                size * 1.5 + "px";
+
+
+            petal.style.opacity =
+                Math.random() * .5 + .25;
+
+
+            const duration =
+                Math.random() * 8 + 7;
+
+
+            petal.style.animationDuration =
+                duration + "s";
+
+
+            petal.style.animationDelay =
+                Math.random() * 8 + "s";
+
+
+            const colors = [
+
+                "#f5c4d4",
+                "#edb0c5",
+                "#f8d5df",
+                "#dfa0b7",
+                "#f3bdcf"
+
+            ];
+
+
+            petal.style.background =
+                colors[
+                Math.floor(
+                    Math.random()
+                    * colors.length
+                )
+                ];
+
+
+            petalsContainer.appendChild(
+                petal
+            );
+
+
+            setTimeout(
+
+                () => {
+
+                    petal.remove();
+
+                    createPetal();
+
+                },
+
+                (duration + 8) * 1000
+
+            );
+
+        }
+
+
+        /* =========================================================
+           INITIAL PETALS
+        ========================================================= */
+
+        for (
+            let i = 0;
+            i < 35;
+            i++
+        ) {
+
+            createPetal();
+
+        }
+
+
+        /* =========================================================
+           ELEMENTS
+        ========================================================= */
+
+        const wrapper =
+            document.getElementById(
+                "envelopeWrapper"
+            );
+
+
+        const envelope =
+            document.getElementById(
+                "envelope"
+            );
+
+
+        const button =
+            document.getElementById(
+                "openButton"
+            );
+
+
+        /* =========================================================
+           OPEN INVITATION
+        ========================================================= */
+
+        function openInvitation() {
+
+            if (
+                wrapper.classList.contains(
+                    "open"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            wrapper.classList.add(
+                "open"
+            );
+
+
+            document.body.classList.add(
+                "opened"
+            );
+
+        }
+
+
+        /* =========================================================
+           CLICK ENVELOPE
+        ========================================================= */
+
+        envelope.addEventListener(
+            "click",
+            openInvitation
+        );
+
+
+        /* =========================================================
+           OPEN BUTTON
+        ========================================================= */
+
+        button.addEventListener(
+
+            "click",
+
+            function (event) {
+
+                event.stopPropagation();
+
+                openInvitation();
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
