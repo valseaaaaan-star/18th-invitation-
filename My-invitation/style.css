@@ -1,0 +1,247 @@
+﻿/* =========================================
+   DREAMY GARDEN BACKGROUND
+========================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    background:
+    /* golden sunlight */
+    radial-gradient( circle at 72% 25%, rgba(255, 239, 194, 0.95) 0%, rgba(255, 210, 176, 0.55) 18%, transparent 45% ),
+    /* peachy mist */
+    radial-gradient( ellipse at 50% 55%, rgba(255, 205, 184, 0.9) 0%, rgba(245, 174, 159, 0.55) 35%, transparent 70% ),
+    /* warm sky */
+    linear-gradient( 180deg, #f8c6b4 0%, #f6b69e 30%, #e99d8c 62%, #a86e65 100% );
+    transition: opacity 2s ease;
+    pointer-events: none;
+}
+
+
+/* Soft forest shadows */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    background:
+    /* left tree */
+    linear-gradient( 72deg, rgba(74, 55, 43, 0.72) 0%, rgba(74, 55, 43, 0.72) 9%, transparent 10% ),
+    /* right tree */
+    linear-gradient( 110deg, transparent 0%, transparent 88%, rgba(68, 51, 43, 0.75) 89%, rgba(68, 51, 43, 0.75) 100% ),
+    /* distant foliage */
+    radial-gradient( ellipse at 12% 65%, rgba(91, 105, 65, 0.65) 0%, transparent 27% ), radial-gradient( ellipse at 88% 65%, rgba(80, 100, 61, 0.65) 0%, transparent 30% ),
+    /* foreground greenery */
+    radial-gradient( ellipse at 5% 95%, rgba(48, 76, 48, 0.8) 0%, transparent 30% ), radial-gradient( ellipse at 96% 92%, rgba(48, 75, 45, 0.8) 0%, transparent 30% );
+    filter: blur(2px);
+    transition: opacity 2.5s ease;
+}
+
+
+/* =========================================
+   OPENED BACKGROUND
+========================================= */
+
+body.opened::before {
+    opacity: 1;
+}
+
+body.opened::after {
+    opacity: 1;
+}
+
+
+/* Make petals warmer after opening */
+
+body.opened .petal {
+    background: #f5c3ad !important;
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   EXTRA DREAMY LIGHT
+========================================= */
+
+body.opened .container::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: 5%;
+    right: 5%;
+    background: radial-gradient( circle, rgba(255, 235, 202, 0.45), rgba(255, 213, 184, 0.18) 35%, transparent 70% );
+    filter: blur(25px);
+    pointer-events: none;
+    animation: sunlight 6s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+
+@keyframes sunlight {
+
+    from {
+        transform: scale(0.9);
+        opacity: 0.55;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
+}
+
+
+/* =========================================
+   MORE NATURAL FOREST FEEL
+========================================= */
+
+body.opened .invitation {
+    background: linear-gradient( rgba(255, 253, 250, 0.96), rgba(255, 248, 244, 0.96) );
+    box-shadow: 0 25px 70px rgba(78, 49, 43, 0.28);
+}
+
+
+/* Warm up the text */
+
+body.opened .name {
+    color: #49302e;
+}
+
+body.opened .surname {
+    color: #855a55;
+}
+
+body.opened .small-text,
+body.opened .subtitle {
+    color: #9a716a;
+}
+
+body.opened .divider-line {
+    background: #d9afa5;
+}
+
+body.opened .divider-heart {
+    color: #c98278;
+}
+
+
+/* =========================================
+   GRAND OPENING CURTAIN
+========================================= */
+
+.grand-curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 18;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   CURTAIN PANELS
+========================================= */
+
+.grand-curtain-panel {
+    position: absolute;
+    top: 0;
+    width: 52%;
+    height: 100%;
+    background: linear-gradient( 90deg, #160d12 0%, #24131a 10%, #3a2029 25%, #542b36 40%, #6b3542 50%, #45232d 65%, #28151c 82%, #120a0e 100% );
+    box-shadow: inset 0 0 70px rgba(0,0,0,.45), 0 0 45px rgba(0,0,0,.55);
+    transition: transform 2.8s cubic-bezier(.77,0,.18,1);
+}
+
+
+    /* =========================================
+   VELVET FOLDS
+========================================= */
+
+    .grand-curtain-panel::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient( 90deg, rgba(255,220,190,.035) 0px, rgba(255,220,190,.035) 8px, rgba(0,0,0,.13) 18px, rgba(0,0,0,.20) 30px, rgba(255,220,190,.035) 43px );
+        opacity: .9;
+    }
+
+
+    /* =========================================
+   GOLDEN CURTAIN LIGHT
+========================================= */
+
+    .grand-curtain-panel::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 120px;
+        background: linear-gradient( 90deg, transparent, rgba(221,177,125,.16), transparent );
+        filter: blur(12px);
+    }
+
+
+    /* =========================================
+   LEFT CURTAIN
+========================================= */
+
+    .grand-curtain-panel.left {
+        left: 0;
+        clip-path: polygon( 0 0, 100% 0, 92% 18%, 86% 38%, 78% 58%, 68% 78%, 55% 100%, 0 100% );
+    }
+
+
+        .grand-curtain-panel.left::after {
+            right: 8%;
+        }
+
+
+    /* =========================================
+   RIGHT CURTAIN
+========================================= */
+
+    .grand-curtain-panel.right {
+        right: 0;
+        background: linear-gradient( 270deg, #160d12 0%, #24131a 10%, #3a2029 25%, #542b36 40%, #6b3542 50%, #45232d 65%, #28151c 82%, #120a0e 100% );
+        clip-path: polygon( 0 0, 100% 0, 100% 100%, 45% 100%, 32% 78%, 22% 58%, 14% 38%, 8% 18% );
+    }
+
+
+        .grand-curtain-panel.right::after {
+            left: 8%;
+        }
+
+
+/* =========================================
+   CURTAIN OPENS
+========================================= */
+
+body.opened .grand-curtain-panel.left {
+    transform: translateX(-105%);
+}
+
+body.opened .grand-curtain-panel.right {
+    transform: translateX(105%);
+}
+
+
+/* =========================================
+   HIDE OLD TREES AND PINK FLOWERS
+   Their original code remains untouched
+========================================= */
+
+.tree {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.flower {
+    opacity: 0;
+    visibility: hidden;
+}
